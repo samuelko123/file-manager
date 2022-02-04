@@ -45,6 +45,6 @@ follow_imports = "normal"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "--cov-report term-missing --cov=file_manager"
+addopts = "--cov=file_manager --cov-report=xml term-missing"
 testpaths = "tests"
 python_files = "*_test.py"
