@@ -5,15 +5,15 @@ on:
       - main
 
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
+    - name: Checkout repo
       uses: checkout@v2
     - name: Setup Python
       uses: actions/setup-python@master
       with:
-        python-version: 3.9
+        python-version: '3.9'
     - name: Install Poetry
       run: pip install poetry
     - name: Install dependencies
