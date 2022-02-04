@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "file_manager"
+version = "1.0.0"
+description = "A basic file manager"
+authors = ["Samuel Ko <koshunyin@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest-cov = "^3.0.0"
+pytest = "^6.2.5"
+pytest-mock = "^3.7.0"
+pylint = "^2.12.2"
+mypy = "^0.931"
+black = "^22.1.0"
+
+[tool.poetry.scripts]
+start = "scripts:start"
+lint = "scripts:lint"
+test = "scripts:test"
+
+[tool.pylint.master]
+disable=[
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "unused-argument",
+    "too-many-ancestors",
+    "line-too-long",
+]
+
+[tool.mypy]
+files = "./file_manager/*.py"
+python_version = "3.9"
+show_error_codes = "True"
+disallow_untyped_defs = "True"
+disallow_any_unimported = "True"
+no_implicit_optional = "True"
+check_untyped_defs = "True"
+warn_return_any = "True"
+warn_unused_ignores = "True"
+ignore_missing_imports = "False"
+follow_imports = "normal"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov-report term-missing --cov=file_manager"
+testpaths = "tests"
+python_files = "*_test.py"
