@@ -1,17 +1,11 @@
-from unittest import mock
-from file_manager.app import App
+from file_manager.app import App, View, Controller, Model
 
 
-def test_report_callback_exception():
+def test_app():
     # Arrange
     a = App()
 
-    a._view.error_label = mock.MagicMock()
-    p = mock.PropertyMock()
-    type(a._view.error_label).text = p
-
-    # Action
-    a.report_callback_exception(Exception, "Test Error", None)
-
     # Assert
-    p.assert_called_once_with("Test Error")
+    assert isinstance(a.view, View)
+    assert isinstance(a.model, Model)
+    assert isinstance(a.controller, Controller)

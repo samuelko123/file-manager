@@ -1,8 +1,7 @@
 import os
 import pytest
 from unittest import mock
-from file_manager.model import Model
-from file_manager.publisher import Publisher
+from file_manager.model import Model, Publisher
 
 
 def test_publisher():

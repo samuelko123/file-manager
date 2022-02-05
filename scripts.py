@@ -4,7 +4,7 @@ from file_manager.app import App
 
 def start() -> None:
     app = App()
-    app.mainloop()
+    app.view.mainloop()
 
 
 def lint() -> None:

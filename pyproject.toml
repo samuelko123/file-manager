@@ -28,6 +28,7 @@ disable=[
     "unused-argument",
     "too-many-ancestors",
     "line-too-long",
+    "too-few-public-methods",
 ]
 
 [tool.mypy]

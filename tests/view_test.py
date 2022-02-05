@@ -4,10 +4,9 @@ from file_manager.view import View
 from unittest import mock
 
 
-def test_update_folder(mocker):
+def test_update_folder():
     # Arrange
-    root = tk.Tk()
-    v = View(master=root)
+    v = View()
 
     # Action
     v.update_text_field("Test")
@@ -18,8 +17,7 @@ def test_update_folder(mocker):
 
 def test_update_items():
     # Arrange
-    root = tk.Tk()
-    v = View(master=root)
+    v = View()
     items = [
         {
             "name": "test1.txt",
@@ -53,3 +51,18 @@ def test_update_items():
             "type": "Folder",
         },
     ]
+
+
+def test_report_callback_exception():
+    # Arrange
+    v = View()
+
+    v.error_label = mock.MagicMock()
+    p = mock.PropertyMock()
+    type(v.error_label).text = p
+
+    # Action
+    v.report_callback_exception(Exception, "Test Error", None)
+
+    # Assert
+    p.assert_called_once_with("Test Error")
