@@ -1,4 +1,6 @@
 # File Manager
+[![codecov](https://codecov.io/gh/samuelko123/file-manager/branch/main/graph/badge.svg?token=DP8KAKEF78)](https://codecov.io/gh/samuelko123/file-manager)
+![licence badge](https://img.shields.io/github/license/samuelko123/file-manager)
 
 A basic file manager, written in Python.
 
