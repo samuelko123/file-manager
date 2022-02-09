@@ -4,6 +4,19 @@ from file_manager.view import View
 from unittest import mock
 
 
+def test_focus_text_field(mocker):
+    # Arrange
+    v = View()
+    v.text_field.focus = mocker.Mock()
+
+    # Action
+    evt = tk.Event()
+    v.focus_text_field(evt)
+
+    # Assert
+    v.text_field.focus.assert_called_once()
+
+
 def test_update_folder():
     # Arrange
     v = View()

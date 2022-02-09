@@ -78,3 +78,7 @@ class View(tk.Tk):
             item["size"] = f"{size / 1024.0:,.0f} KB" if size > 0 else ""
 
         self.file_list.items = items
+
+    def focus_text_field(self, event: tk.Event) -> None:
+        self.text_field.selection_range(0, tk.END)
+        self.text_field.focus()

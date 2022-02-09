@@ -13,8 +13,15 @@ class Controller:
         self._model.publisher.attach("items updated", self._view.update_file_list)
 
         # attach event handlers to view widgets
+        self._view.bind(sequence="<Control-l>", func=self._view.focus_text_field)
+        self._view.bind(
+            sequence="<Alt-Up>", func=lambda event: self.go_to_parent_folder()
+        )
         self._view.up_button.configure(command=self.go_to_parent_folder)
         self._view.text_field.bind(sequence="<Return>", func=self.set_folder)
+        self._view.text_field.bind(
+            sequence="<Escape>", func=lambda event: self._view.focus()
+        )
         self._view.file_list.bind(sequence="<Double-1>", func=self.open_item)
 
     def dismiss_error(self) -> None:
